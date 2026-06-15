@@ -1,35 +1,28 @@
-
 const ACTIVECLASS = 'active';
 const IMAGES = document.querySelectorAll('.slider');
 
-IMAGES[0].classList.add(ACTIVECLASS);
+let activeImage = null;
 
-function removeActiveClass(){
-    const elm = document.querySelector(`.${ACTIVECLASS}`);
-
-    if(elm){
-        elm.classList.remove(ACTIVECLASS);
+function setActive(image) {
+    if (activeImage) {
+        activeImage.classList.remove(ACTIVECLASS);
     }
+    image.classList.add(ACTIVECLASS);
+    activeImage = image;
 }
 
-function addClass($event){
-
-    $event.stopPropagation();
-    removeActiveClass();
-
-    const target = $event.currentTarget;
-    target.classList.add(ACTIVECLASS);
+if (IMAGES.length > 0) {
+    setActive(IMAGES[0]);
 }
 
-IMAGES.forEach(image =>{
-    image.addEventListener('click', addClass);
+IMAGES.forEach(image => {
+    image.addEventListener('click', event => {
+        setActive(event.currentTarget);
+    });
 });
 
-//menu bar
-
-$(document).ready(function () {
-    $('.fa-bars').click(function () {
-        $(this).toggleClass('fa-times'); 
-        $('nav').toggleClass('nav-toggle');
-    });
+// menu bar (vanilla)
+document.querySelector('.fa-bars')?.addEventListener('click', function () {
+    this.classList.toggle('fa-times');
+    document.querySelector('nav')?.classList.toggle('nav-toggle');
 });
