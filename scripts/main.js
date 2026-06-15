@@ -4,6 +4,7 @@ const IMAGES = document.querySelectorAll('.slider');
 let activeImage = null;
 
 function setActive(image) {
+    // Remove active class from previously active image
     if (activeImage) {
         activeImage.classList.remove(ACTIVECLASS);
     }
@@ -11,10 +12,12 @@ function setActive(image) {
     activeImage = image;
 }
 
+// Initialize the first slider as active
 if (IMAGES.length > 0) {
     setActive(IMAGES[0]);
 }
 
+// Attach click listeners to each slider image
 IMAGES.forEach(image => {
     image.addEventListener('click', event => {
         setActive(event.currentTarget);
