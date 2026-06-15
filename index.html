@@ -12,9 +12,10 @@
 </head>
 
 <body>
-
+ <!-- Main layout wrapper for the entire page -->
     <div class="wrapper">
 
+        <!-- Header: contains logo, navigation menu, and mobile toggle button -->
         <header class="header">
             <a href="/" class="logo">
                 <img src="images/logo.svg" alt="Company logo">
@@ -23,7 +24,7 @@
             <nav class="main-nav" aria-label="Main Navigation">
                 <ul>
                     <li><a href="#">Home</a></li>
-
+                    <!-- Courses menu with dropdown submenu -->
                     <li>
                         <a href="#">Courses</a>
                         <ul class="submenu" aria-label="Courses submenu">
@@ -40,12 +41,14 @@
                 </ul>
             </nav>
 
+             <!-- Mobile navigation toggle button (hamburger icon) -->
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
         </header>
 
         <section id="home">
+            <!-- Slider container: holds all slider images -->
             <div class="slide-wrapper">
                 <div class="slider pic-1"></div>
                 <div class="slider pic-2"></div>
